@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <form>
-          <input type="hidden" name="id" wire:model="ids">
+          <input type="hidden" wire:model="ids">
           <div class="form-group">
             <label for="firstname">First Name</label>
             <input type="text" name="firstname" class="form-control" wire:model="firstname">

@@ -1,15 +1,16 @@
 <!-- Modal -->
-<div wire:ignore.self class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="updateStudentModal" tabindex="-1" role="dialog" aria-labelledby="updateStudentLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="addStudentLabel">Create Student</h5>
+        <h5 class="modal-title" id="updateStudentLabel">Update Student</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="">
+        <form>
+          <input type="hidden" name="id" wire:model="ids">
           <div class="form-group">
             <label for="firstname">First Name</label>
             <input type="text" name="firstname" class="form-control" wire:model="firstname">
@@ -42,7 +43,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" wire:click.prevent="resetInputFields()">Close</button>
-        <button type="button" class="btn btn-primary" wire:click.prevent="store()">Save changes</button>
+        <button type="button" class="btn btn-primary" wire:click.prevent="update()">Save changes</button>
       </div>
     </div>
   </div>

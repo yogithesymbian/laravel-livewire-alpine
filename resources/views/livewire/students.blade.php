@@ -1,5 +1,6 @@
 <div>
     @include('livewire.create')
+    @include('livewire.update')
     <section>
         <div class="container">
             <div class="row">
@@ -25,6 +26,7 @@
                                         <th>Last Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,11 +36,24 @@
                                             <td> {{$item->lastname}} </td>
                                             <td> {{$item->email}} </td>
                                             <td> {{$item->phone}} </td>
+                                            <td>
+                                                <button
+                                                    type="button" class="btn btn-info"
+                                                    data-toggle="modal" data-target="#updateStudentModal"
+                                                    wire:click.prevent="edit({{$item->id}})">
+                                                    Edit
+                                                </button>
+                                                <button
+                                                    type="button" class="btn btn-danger"
+                                                    wire:click.prevent="delete({{$item->id}})">
+                                                    Delete
+                                                </button>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
-                            <nav aria-label="Page navigation example">
+                            {{-- <nav aria-label="Page navigation example">
                                 <ul class="pagination">
                                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                                   <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -46,7 +61,7 @@
                                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
                                 </ul>
-                            </nav>
+                            </nav> --}}
                             {{ $students->links() }}
                         </div>
                     </div>
